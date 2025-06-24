@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>KickIQTech</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #1a1d23;
+      color: #f4f4f4;
+    }
+
+    header {
+      background: linear-gradient(to right, #0d6efd, #0a58ca);
+      text-align: center;
+      padding: 80px 20px;
+    }
+
+    h1 {
+      font-size: 3.5em;
+      margin-bottom: 10px;
+      letter-spacing: 2px;
+    }
+
+    h2 {
+      font-weight: normal;
+      font-size: 1.4em;
+    }
+
+    .btn {
+      background: #00c851;
+      color: white;
+      padding: 15px 30px;
+      font-size: 1.2em;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      margin: 10px 10px 10px 0;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background: #007e33;
+    }
+
+    section {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 20px;
+      background: #2c2f36;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    }
+
+    section h3 {
+      color: #00c851;
+      font-size: 1.8em;
+      margin-bottom: 20px;
+    }
+
+    ul, ol {
+      padding-left: 20px;
+      line-height: 1.6;
+    }
+
+    #level-output {
+      margin-top: 20px;
+      font-size: 1.3em;
+      color: #00c851;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      font-size: 0.9em;
+      background: #121417;
+      color: #aaa;
+      margin-top: 40px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Chatbot styles */
+    #chatbot {
+      background: #121417;
+      padding: 15px;
+      border-radius: 15px;
+      max-width: 600px;
+      margin: 20px auto;
+      color: white;
+    }
+
+    #chatlog {
+      height: 200px;
+      overflow-y: auto;
+      background: #22242b;
+      padding: 10px;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      font-size: 0.95em;
+    }
+
+    #user-input {
+      width: 80%;
+      padding: 10px;
+      border-radius: 20px;
+      border: none;
+      font-size: 1em;
+      margin-right: 10px;
+    }
+
+    #send-btn {
+      padding: 10px 20px;
+      border-radius: 20px;
+      border: none;
+      background: #00c851;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    #send-btn:hover {
+      background: #007e33;
+    }
+
+    /* Video embed styling */
+    .video-wrapper {
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 */
+      padding-top: 25px;
+      height: 0;
+      margin-bottom: 20px;
+    }
+
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 15px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>KickIQTech</h1>
+    <h2>Learn Soccer Smarter. Play Better.</h2>
+    <a href="#lessons"><button class="btn">Start Learning Now</button></a>
+  </header>
+
+  <section id="select-level">
+    <h3>🚀 Select Your Level</h3>
+    <p>Pick your current skill level so we can tailor your lessons:</p>
+    <button class="btn" onclick="showLevel('Beginner')">Beginner</button>
+    <button class="btn" onclick="showLevel('Intermediate')">Intermediate</button>
+    <button class="btn" onclick="showLevel('Advanced')">Advanced</button>
+    <div id="level-output"></div>
+  </section>
+
+  <section>
+    <h3>⚽ Why KickIQTech?</h3>
+    <ul>
+      <li>🧠 AI Coach — Ask questions and get instant tactical advice.</li>
+      <li>📈 Learn step-by-step from beginner to advanced.</li>
+      <li>🔁 Explore team formations, transitions, and pressing systems.</li>
+      <li>🎯 Practice real tactics used by top clubs and players.</li>
+      <li>🕹️ Challenge yourself with skill-based quizzes and situations.</li>
+    </ul>
+  </section>
+
+  <section id="lessons">
+    <h3>📚 Lessons & Videos</h3>
+
+    <div id="beginner-lessons" style="display:none;">
+      <h4>Beginner Lessons</h4>
+      <ul>
+        <li>Basic Dribbling Techniques</li>
+        <li>Simple Passing & Receiving</li>
+        <li>Introduction to 4-4-2 Formation</li>
+      </ul>
+      <div class="video-wrapper">
+        <iframe src="https://www.youtube.com/embed/L6MoxXwGL_A" title="Beginner Soccer Dribbling Tutorial" allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <div id="intermediate-lessons" style="display:none;">
+      <h4>Intermediate Lessons</h4>
+      <ul>
+        <li>Advanced Passing Lanes</li>
+        <li>Pressing and Defensive Positioning</li>
+        <li>Understanding the 4-3-3 Formation</li>
+      </ul>
+      <div class="video-wrapper">
+        <iframe src="https://www.youtube.com/embed/rDmO9PmYdGg" title="Intermediate Soccer Tactics" allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <div id="advanced-lessons" style="display:none;">
+      <h4>Advanced Lessons</h4>
+      <ul>
+        <li>Counter-Pressing Strategies</li>
+        <li>Complex Tactical Systems</li>
+        <li>In-depth 3-5-2 Formation Breakdown</li>
+      </ul>
+      <div class="video-wrapper">
+        <iframe src="https://www.youtube.com/embed/9V6FYp9eyX0" title="Advanced Soccer Tactics" allowfullscreen></iframe>
+      </div>
+    </div>
+  </section>
+
+  <section id="chatbot">
+    <h3>💬 Ask the KickIQTech AI Coach</h3>
+    <div id="chatlog"></div>
+    <input type="text" id="user-input" placeholder="Type your soccer question here..." />
+    <button id="send-btn">Send</button>
+  </section>
+
+  <footer>
+    Contact: info@kickiqtech.com<br />
+    Follow us: Instagram | Twitter | TikTok<br />
+    © 2025 KickIQTech. All rights reserved.
+  </footer>
+
+  <script>
+    // Show lessons based on selected level
+    function showLevel(level) {
+      document.getElementById('level-output').innerText = 
+        `You selected: ${level}. Scroll down to start your ${level} lessons!`;
+      document.getElementById('beginner-lessons').style.display = 'none';
+      document.getElementById('intermediate-lessons').style.display = 'none';
+      document.getElementById('advanced-lessons').style.display = 'none';
+
+      if(level === 'Beginner') {
+        document.getElementById('beginner-lessons').style.display = 'block';
+      } else if(level === 'Intermediate') {
+        document.getElementById('intermediate-lessons').style.display = 'block';
+      } else if(level === 'Advanced') {
+        document.getElementById('advanced-lessons').style.display = 'block';
+      }
+    }
+
+    // Simple chatbot with preset answers
+    const chatlog = document.getElementById('chatlog');
+    const userInput = document.getElementById('user-input');
+    const sendBtn = document.getElementById('send-btn');
+
+    function addMessage(sender, message) {
+      const msgDiv = document.createElement('div');
+      msgDiv.style.marginBottom = '10px';
+      msgDiv.innerHTML = `<strong>${sender}:</strong> ${message}`;
+      chatlog.appendChild(msgDiv);
+      chatlog.scrollTop = chatlog.scrollHeight;
+    }
+
+    function getBotResponse(input) {
+      input = input.toLowerCase().trim();
+
+      // Simple hardcoded responses for demo
+      if(input.includes('formation')) {
+        return 'Formations like 4-4-2 or 4-3-3 determine player positions on the field.';
+      } else if(input.includes('dribbling')) {
+        return 'Dribbling involves close ball control to get past defenders.';
+      } else if(input.includes('passing')) {
+        return 'Passing is key to keeping possession and creating chances.';
+      } else if(input.includes('defense') || input.includes('defending')) {
+        return 'Good defense requires positioning and communication with teammates.';
+      } else if(input.includes('shooting')) {
+        return 'Shooting technique focuses on accuracy and power to score goals.';
+      } else if(input === '') {
+        return 'Please type a question!';
+      } else {
+        return 'Great question! We\'re working on more AI answers soon.';
+      }
+    }
+
+    sendBtn.addEventListener('click', () => {
+      const userText = userInput.value;
+      if(userText.trim() === '') return;
+
+      addMessage('You', userText);
+      const botReply = getBotResponse(userText);
+      setTimeout(() => addMessage('KickIQTech AI', botReply), 500);
+
+      userInput.value = '';
+      userInput.focus();
+    });
+
+    // Optional: Enter key sends message
+    userInput.addEventListener('keypress', e => {
+      if(e.key === 'Enter') {
+        sendBtn.click();
+      }
+    });
+  </script>
+
+</body>
+</html>
